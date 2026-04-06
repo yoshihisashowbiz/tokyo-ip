@@ -1,1 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>TOKYO IP — Yoshihisa Sakamoto</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Space+Mono:wght@400;700&display=swap');
 
+:root {
+  --bg: #080808;
+  --fg: #ddd5c8;
+  --dim: #5a5550;
+  --ghost: #a09888;
+  --chemical: #c44a2a;
+  --gap: clamp(60px, 8vw, 120px);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'EB Garamond', Georgia, serif;
+  overflow-x: hidden;
+}
+
+/* ── INTRO ── */
+.intro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(48px, 7vw, 96px);
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.intro-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.intro-title {
+  font-size: clamp(52px, 9vw, 110px);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  margin-bottom: 56px;
+}
+
+.intro-title em {
+  font-style: italic;
+  color: var(--dim);
+}
+
+.intro-core {
+  max-width: 520px;
+  font-size: clamp(17px, 2vw, 21px);
+  line-height: 1.65;
+  color: var(--dim);
+  font-style: italic;
+  padding-left: 28px;
+  border-left: 1px solid var(--dim);
+  margin-bottom: 72px;
+}
+
+.intro-meta {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.intro-meta-item {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--dim);
+  text-transform: uppercase;
+}
+
+.intro-meta-item strong {
+  display: block;
+  color: var(--fg);
+  font-weight: 400;
+  margin-bottom: 4px;
+  font-size: 11px;
+}
+
+/* ── SERIES HEADER ── */
+.series-header {
+  padding: var(--gap) clamp(48px, 7vw, 96px) 0;
+  display: flex;
+  align-items: baseline;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.series-title {
+  font-size: clamp(36px, 5.5vw, 72px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.series-title.ghost { color: var(--ghost); }
+.series-title.chemical { color: var(--chemical); }
+
+.series-subtitle {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--dim);
+  text-transform: uppercase;
+}
+
+/* ── WORK ── */
+.work {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  min-height: 90vh;
+  margin-top: 2px;
+}
+
+.work--reverse {
+  grid-template-columns: 45fr 55fr;
+}
+
+.work--reverse .work-image { order: 2; }
+.work--reverse .work-text  { order: 1; }
+
+.work-image {
+  position: relative;
+  overflow: hidden;
+  background: #0d0d0d;
+}
+
+.work-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.9) contrast(1.06) saturate(0.88);
+  transition: filter 1s ease, transform 1.4s ease;
+}
+
+.work:hover .work-image img {
+  filter: brightness(1) contrast(1.1) saturate(0.95);
+  transform: scale(1.03);
+}
+
+.work-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(48px, 6vw, 96px);
+  background: var(--bg);
+  border-left: 1px solid #111;
+}
+
+.work--reverse .work-text {
+  border-left: none;
+  border-right: 1px solid #111;
+}
+
+.work-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  display: block;
+}
+
+.work-role {
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.work-role-jp {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.work-divider {
+  width: 32px;
+  height: 1px;
+  margin-bottom: 32px;
+  opacity: 0.6;
+}
+
+.work-poem {
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--fg);
+}
+
+/* ── DIVIDER ── */
+.series-divider {
+  height: 1px;
+  background: #151515;
+  margin: var(--gap) 0 0;
+}
+
+/* ── PROPOSAL ── */
+.proposal {
+  padding: var(--gap) clamp(48px, 7vw, 96px);
+  border-top: 1px solid #151515;
+  margin-top: var(--gap);
+}
+
+.proposal-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin-bottom: 48px;
+}
+
+.proposal-statement {
+  max-width: 680px;
+  font-size: clamp(20px, 2.5vw, 30px);
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 64px;
+  letter-spacing: -0.01em;
+}
+
+.proposal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 6vw, 96px);
+  margin-bottom: 72px;
+}
+
+.proposal-block h3 {
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+  color: var(--ghost);
+}
+
+.proposal-block h3.c { color: var(--chemical); }
+
+.proposal-block p {
+  font-size: clamp(16px, 1.8vw, 19px);
+  line-height: 1.7;
+  color: var(--dim);
+}
+
+.proposal-applications {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-bottom: 72px;
+}
+
+.app-item {
+  padding: 32px 24px;
+  background: #0d0d0d;
+}
+
+.app-space {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.app-series {
+  font-size: clamp(16px, 1.6vw, 20px);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.app-series .g { color: var(--ghost); }
+.app-series .c { color: var(--chemical); }
+
+.app-desc {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--dim);
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+}
+
+/* ── CONTACT ── */
+.contact {
+  padding: var(--gap) clamp(48px, 7vw, 96px);
+  border-top: 1px solid #151515;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.contact-left h2 {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  margin-bottom: 24px;
+}
+
+.contact-left p {
+  font-size: clamp(15px, 1.6vw, 18px);
+  color: var(--dim);
+  font-style: italic;
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+.contact-right { text-align: right; }
+
+.contact-link {
+  display: block;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--fg);
+  text-decoration: none;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.contact-link:hover { color: var(--ghost); }
+
+.contact-name {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin-top: 32px;
+  line-height: 1.8;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .work, .work--reverse {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .work-image { height: 75vw; }
+  .work--reverse .work-image { order: 1; }
+  .work--reverse .work-text  { order: 2; border-right: none; }
+  .work-text { border-left: none; }
+  .proposal-grid { grid-template-columns: 1fr; }
+  .proposal-applications { grid-template-columns: 1fr 1fr; }
+  .contact { flex-direction: column; align-items: flex-start; }
+  .contact-right { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="intro">
+  <p class="intro-eyebrow">Tokyo IP — Visual Proposal</p>
+  <h1 class="intro-title">Ghost /<br><em>Chemical</em></h1>
+  <p class="intro-core">
+    We don't create content.<br>
+    We create artifacts of a city that never existed.
+  </p>
+  <div class="intro-meta">
+    <div class="intro-meta-item"><strong>Two Series</strong>Ghost / Chemical</div>
+    <div class="intro-meta-item"><strong>Ten Works</strong>5 + 5 compositions</div>
+    <div class="intro-meta-item"><strong>Author</strong>Yoshihisa Sakamoto</div>
+  </div>
+</section>
+
+<!-- GHOST -->
+<div class="series-header">
+  <h2 class="series-title ghost">Ghost</h2>
+  <span class="series-subtitle">Residual Tokyo — what remains</span>
+</div>
+
+<section class="work">
+  <div class="work-image"><img src="img00038.jpg" alt="Threshold" loading="lazy"></div>
+  <div class="work-text">
+    <span class="work-num" style="color:var(--ghost)">Ghost — 01</span>
+    <h3 class="work-role">Threshold</h3>
+    <p class="work-role-jp">入口 — 存在のズレ</p>
+    <div class="work-divider" style="background:var(--ghost)"></div>
+    <p class="work-poem">Not a beginning.<br>Just something that remained.</p>
+  </div>
+</section>
+
+<section class="work work--reverse">
+  <div class="work-image"><img src="img00064.jpg" alt="Passage" loading="lazy"></div>
+  <div class="work-text">
+    <span class="work-num" style="color:var(--ghost)">Ghost — 02</span>
+    <h3 class="work-role">Passage</h3>
+    <p class="work-role-jp">人 — 匿名化された存在</p>
+    <div class="work-divider" style="background:var(--ghost)"></div>
+    <p class="work-poem">No one stays.<br>Still, something passes.</p>
+  </div>
+</section>
+
+<section class="work">
+  <div class="work-image"><img src="img00012.jpg" alt="Residue" loading="lazy"></div>
+  <div class="work-text">
+    <span class="work-num" style="color:var(--ghost)">Ghost — 03</span>
+    <h3 class="work-role">Residue</h3>
+    <p class="work-role-jp">反応 — 都市の化学</p>
+    <div class="work-divider" style="background:var(--ghost)"></div>
+    <p class="work-poem">It wasn't light.<br>What it left behind.</p>
+  </div>
+</section>
+
+<section class="work work--reverse">
+  <div class="work-image"><img src="img00022.jpg" alt="Periphery" loading="lazy"></div>
+  <div class="work-text">
+    <span class="work-num" style="color:var(--ghost)">Ghost — 04</span>
+    <h3 class="work-role">Periphery</h3>
+    <p class="work-role-jp">減衰 — 都市の外縁</p>
+    <div class="work-divider" style="background:var(--ghost)"></div>
+    <p class="work-poem">Nothing happens here.<br>That's why it stays.</p>
+  </div>
+</section>
+
+<section class="work">
+  <div class="work-image"><img src="img00076.jpg" alt="Sediment" loading="lazy"></div>
+  <div class="work-text">
+    <span class="work-num" style="color:var(--ghost)">Ghost — 05</span>
+    <h3 class="work-role">Sediment</h3>
+    <p class="work-role-jp">残留 — 時間の堆積</p>
+    <div class="work-divider" style="background:var(--ghost)"></div>
+    <p class="work-poem">The city forgot.<br>The image did not.</p>
+  </div>
+</section>
+
+<div class="series-divider"></div>
+
+<!-- CHEMICAL -->
+<div class="series-header">
+  <h2 class="series-title chemical">Chemical</h2>
+  <span class="series-subtitle">Synthetic Tokyo — what reacts</span>
+</div>
+
+<section class="work">
+  <div class="work-image"><img src="img00049.jpg" alt="Severance" loading="lazy"></div>
+  <div class="work-text">
+    <span class="work-num" style="color:var(--chemical)">Chemical — 01</span>
+    <h3 class="work-role">Severance</h3>
+    <p class="work-role-jp">導入 — 現実からの切断</p>
+    <div class="work-divider" style="background:var(--chemical)"></div>
+    <p class="work-poem">Not the city.<br>A structure pretending to be one.</p>
+  </div>
+</section>
+
+<section class="work work--reverse">
+  <div class="work-image"><img src="img00074.jpg" alt="Reaction" loading="lazy"></div>
+  <div class="work-text">
+    <span class="work-num" style="color:var(--chemical)">Chemical — 02</span>
+    <h3 class="work-role">Reaction</h3>
+    <p class="work-role-jp">反応のピーク</p>
+    <div class="work-divider" style="background:var(--chemical)"></div>
+    <p class="work-poem">Too much light<br>to belong to anything real.</p>
+  </div>
+</section>
+
+<section class="work">
+  <div class="work-image"><img src="img00007.jpg" alt="Precipitation" loading="lazy"></div>
+  <div class="work-text">
+    <span class="work-num" style="color:var(--chemical)">Chemical — 03</span>
+    <h3 class="work-role">Precipitation</h3>
+    <p class="work-role-jp">物質化 — 反応の結果</p>
+    <div class="work-divider" style="background:var(--chemical)"></div>
+    <p class="work-poem">Something solidified<br>that was never meant to last.</p>
+  </div>
+</section>
+
+<section class="work work--reverse">
+  <div class="work-image"><img src="img00071.jpg" alt="Saturation" loading="lazy"></div>
+  <div class="work-text">
+    <span class="work-num" style="color:var(--chemical)">Chemical — 04</span>
+    <h3 class="work-role">Saturation</h3>
+    <p class="work-role-jp">過飽和 — 意味の崩壊</p>
+    <div class="work-divider" style="background:var(--chemical)"></div>
+    <p class="work-poem">Nothing is missing.<br>That's the problem.</p>
+  </div>
+</section>
+
+<section class="work">
+  <div class="work-image"><img src="img00045.jpg" alt="Cooling" loading="lazy"></div>
+  <div class="work-text">
+    <span class="work-num" style="color:var(--chemical)">Chemical — 05</span>
+    <h3 class="work-role">Cooling</h3>
+    <p class="work-role-jp">沈殿 — 反応後の静けさ</p>
+    <div class="work-divider" style="background:var(--chemical)"></div>
+    <p class="work-poem">The city cooled.<br>What's left has no temperature.</p>
+  </div>
+</section>
+
+<!-- TRUNK PROPOSAL -->
+<section class="proposal">
+  <p class="proposal-eyebrow">For TRUNK HOTEL — A Proposal</p>
+  <p class="proposal-statement">
+    TRUNK creates relationships between people.<br>
+    We design relationships between people and space.<br>
+    Together, this forms a continuous experience.
+  </p>
+  <div class="proposal-grid">
+    <div class="proposal-block">
+      <h3>Ghost — what remains</h3>
+      <p>Spaces that hold memory. The invisible layer that accumulates through time. Guests do not merely pass through — they leave something behind.</p>
+    </div>
+    <div class="proposal-block">
+      <h3 class="c">Chemical — what reacts</h3>
+      <p>Space as a living system. People as catalysts. The quality of a stay changes depending on who enters, how they move, when they arrive.</p>
+    </div>
+  </div>
+  <div class="proposal-applications">
+    <div class="app-item">
+      <p class="app-space">Entrance</p>
+      <p class="app-series"><span class="g">Ghost</span></p>
+      <p class="app-desc">Transition from city to perception. The first shift.</p>
+    </div>
+    <div class="app-item">
+      <p class="app-space">Corridor</p>
+      <p class="app-series"><span class="g">Ghost</span></p>
+      <p class="app-desc">Movement as a shifting experience. Residue of passage.</p>
+    </div>
+    <div class="app-item">
+      <p class="app-space">Lounge</p>
+      <p class="app-series"><span class="c">Chemical</span></p>
+      <p class="app-desc">Social interaction layered with spatial response.</p>
+    </div>
+    <div class="app-item">
+      <p class="app-space">Night Identity</p>
+      <p class="app-series"><span class="c">Chemical</span></p>
+      <p class="app-desc">Space that changes as perception shifts after dark.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <div class="contact-left">
+    <h2>Available for<br><em>collaboration.</em></h2>
+    <p>Not decoration. The invisible layer of experience — designed for spaces that intend to be remembered.</p>
+  </div>
+  <div class="contact-right">
+    <a class="contact-link" href="https://www.instagram.com/yoshihisa_sakamoto/">Instagram</a>
+    <a class="contact-link" href="mailto:yoshihisa.show.biz@gmail.com">yoshihisa.show.biz@gmail.com</a>
+    <p class="contact-name">Yoshihisa Sakamoto<br>Visual structures from Tokyo</p>
+  </div>
+</section>
+
+</body>
+</html>
