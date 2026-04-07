@@ -207,6 +207,32 @@ body {
   color: var(--fg);
 }
 
+/* ── STATEMENT ── */
+.statement {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(48px, 7vw, 96px);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1.6s ease, transform 1.6s ease;
+}
+
+.statement.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.statement-text {
+  font-size: clamp(15px, 1.8vw, 20px);
+  line-height: 2;
+  color: var(--dim);
+  font-family: 'EB Garamond', serif;
+  max-width: 560px;
+  letter-spacing: 0.04em;
+}
+
 /* ── DIVIDER ── */
 .series-divider {
   height: 1px;
@@ -450,6 +476,22 @@ body {
 
 <div class="series-divider"></div>
 
+<!-- STATEMENT -->
+<section class="statement">
+  <p class="statement-text">
+    都市は、記録されるたびに死んでいく。<br>
+    風景は情報となり、網膜を滑り落ち、消える。<br>
+    その後に、何かが残る。<br><br>
+    誰かが、どこかに残した名もなき痕跡。<br>
+    それを都市の皮膚から蒸留し、<br>
+    物質として再構成する。<br><br>
+    この都市は、存在しなかった。<br>
+    しかし、そこに遺物がある。<br>
+    それは「今」ではない。<br>
+    どこにもなかった場所から届いた、遠い断片である。
+  </p>
+</section>
+
 <!-- CHEMICAL -->
 <div class="series-header">
   <h2 class="series-title chemical">Chemical</h2>
@@ -527,5 +569,18 @@ body {
 </section>
 
 </body>
+<script>
+const statement = document.querySelector('.statement');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        statement.classList.add('visible');
+      }, 300);
+      observer.unobserve(statement);
+    }
+  });
+}, { threshold: 0.3 });
+observer.observe(statement);
+</script>
 </html>
-
